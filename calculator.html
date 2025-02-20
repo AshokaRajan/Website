@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <style>
+        @keyframes scaleUp {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: auto repeat(6, 1fr);
+            grid-gap: 10px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 380px;
+        }
+
+        .display {
+            grid-column: span 5;
+            background-color: #333;
+            color: white;
+            text-align: right;
+            font-size: 2em;
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            box-sizing: border-box;
+        }
+        .display:hover{
+            box-shadow: 7px 7px 5px rgb(169, 45, 241) ;
+        }
+        .button {
+            background-color: #9ba1f1;
+            padding: 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .button:hover {
+            background-color: #9ba1f1;
+            transform: skewX(-45deg);
+        }
+
+        .button.operator {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .button.operator:hover {
+            background-color: #e67e22;
+            transform: skewX(45deg);
+        }
+
+        .button.equal {
+            background-color: #27ae60;
+            color: white;
+            grid-column: span 5;
+        }
+
+        .button.equal:hover {
+            background-color: #2ecc71;
+            transform: scaleX(1.5);
+        }
+
+        .button.clear {
+            background-color: #e74c3c;
+            color: white;
+            grid-column: span 2;
+            transition:0.5s;
+        }
+
+        .button.clear:hover {
+            background-color: #c0392b;
+            transition:0.5s;
+            transform: rotateZ(180deg);
+        }
+
+        .button.memory {
+            background-color: #3498db;
+            color: white;
+            transition:1s;
+        }
+
+        .button.memory:hover {
+            background-color: #2980b9;
+            transform:translate(100px,200px);
+            transition:1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled placeholder="0">
+        
+        <!-- Clear and Memory Buttons -->
+        <button class="button clear">C</button>
+        <button class="button memory">MC</button>
+        <button class="button memory">MR</button>
+        <button class="button memory">M+</button>
+
+        <!-- Scientific Operators -->
+        <button class="button operator">π</button>
+        <button class="button operator">√</button>
+        <button class="button operator">^</button>
+        <button class="button operator">log</button>
+
+        <!-- Regular Operators -->
+        <button class="button operator">/</button>
+        <button class="button operator">*</button>
+        <button class="button operator">-</button>
+        <button class="button operator">+</button>
+
+        <!-- Numbers -->
+        
+        <button class="button">7</button>
+        <button class="button">8</button>
+        <button class="button">9</button>
+        <button class="button">4</button>
+        <button class="button">5</button>
+        <button class="button">6</button>
+        <button class="button">1</button>
+        <button class="button">2</button>
+        <button class="button">3</button>
+        <button class="button">0</button>
+        <!-- Decimal and Equal -->
+        <button class="button">.</button>
+        <button class="button">Ans</button>
+        <button class="button equal">=</button>
+    </div>
+</body>
+</html>
